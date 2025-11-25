@@ -32,11 +32,9 @@ create table Clientes_compra_producto (
 
 	DNI_cliente int,
     Codigo_producto int,
-    
-    
+        
     primary key(DNI_cliente, Codigo_producto),
     foreign key (DNI_cliente) references Clientes(DNI),
     foreign key (Codigo_producto) references Producto(codigo)
-
 
 );
