@@ -1,0 +1,23 @@
+use Tiendaelectronica;
+
+Select ID_fab,ID_producto,Descripcion,Precio FROM productos;
+Select * from pedidos where Id_cliente = 2; 
+Select * from productos where precio > 100; 
+Select * from clientes where ciudad = "Madrid" or ciudad = "Barcelona";
+Select AVG (Precio) AS Precio_Medio FROM productos where Id_fab = 1;
+Select min(Fecha_pedido) from pedidos;
+Select distinct pais from fabricantes;
+Select * from pedidos where Fecha_pedido between "2024-01-01" and "2024-02-05";
+Select nombre, CONCAT(direccion, " ", ciudad) AS nombre_completo from clientes;
+select pais, count(id_fab) AS total_fabricantes from fabricantes; 
+Select *, precio * 1.21 AS precio_con_iva from productos; 
+select * from productos order by Precio desc limit 1;
+SELECT * FROM PRODUCTOS ORDER BY precio DESC;
+SELECT * FROM CLIENTES ORDER BY ciudad ASC;
+SELECT * FROM PRODUCTOS ORDER BY precio ASC LIMIT 5;
+SELECT id_fab, COUNT(*) as cantidad_productos FROM PRODUCTOS GROUP BY id_fab;
+SELECT * FROM CLIENTES WHERE nombre LIKE 'A%';
+SELECT UPPER(nombre) FROM CLIENTES;
+SELECT LOWER(descripcion) FROM PRODUCTOS;
+SELECT UPPER(CONCAT(nombre, ' ', direccion)) AS Nombre_Completo FROM CLIENTES;
+SELECT * FROM PRODUCTOS WHERE descripcion LIKE '%Portátil%';
