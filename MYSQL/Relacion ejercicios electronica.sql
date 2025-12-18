@@ -1,5 +1,5 @@
 use TiendaTecnologia;
-SELECT id_fab, id_producto, descripcion, precio FROM PRODUCTOS;
+SELECT id_fab, id_producto, descripcion, precio FROM PRODUCTOS;     
 SELECT * FROM PEDIDOS WHERE id_cliente = 2;
 SELECT * FROM PRODUCTOS WHERE precio > 100;
 SELECT * FROM CLIENTES WHERE ciudad IN ('Madrid', 'Barcelona');
@@ -16,7 +16,15 @@ SELECT * FROM PRODUCTOS ORDER BY precio DESC;
 SELECT * FROM CLIENTES ORDER BY ciudad ASC;
 SELECT * FROM PRODUCTOS ORDER BY precio ASC LIMIT 5;
 SELECT id_fab, COUNT(*) as cantidad_productos FROM PRODUCTOS GROUP BY id_fab;
-SELECT id_fab, COUNT() as cantidad_productos FROM PRODUCTOS GROUP BY id_fab HAVING COUNT() > 1;
+
+-- Ejercicio bien hecho 
+
+SELECT id_fab, COUNT(*) AS cantidad_productos
+FROM PRODUCTOS
+GROUP BY id_fab
+HAVING COUNT(*) > 1;
+
+--
 SELECT * FROM CLIENTES WHERE nombre LIKE 'A%';
 SELECT * FROM PRODUCTOS WHERE descripcion LIKE '%Portátil%';
 SELECT UPPER(nombre) FROM CLIENTES;
@@ -46,5 +54,13 @@ SELECT descripcion, precio,
            ELSE 'BARATO'
        END AS categoria_precio
 FROM PRODUCTOS;
-SELECT Id_producto, SUM(cant) as total_vendido FROM Detalles_Pedido GROUP BY Id_producto;
-SELECT ciudad, COUNT() as num_clientes FROM CLIENTES GROUP BY ciudad HAVING COUNT() > 1;
+
+SELECT Id_producto, SUM(cant) as total_vendido FROM Detalles_Pedido GROUP BY Id_producto having suma >=2;
+
+
+-- Ejercicio bien hecho 
+
+SELECT ciudad, COUNT(*) AS num_clientes
+FROM CLIENTES
+GROUP BY ciudad
+HAVING COUNT(*) > 1;
