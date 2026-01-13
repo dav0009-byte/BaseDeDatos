@@ -27,21 +27,28 @@ Select direccion, ciudad as UBICACION, ID_cliente, nombre from clientes;
 
 -- 8 fecha del pedido mas antiguo. Diego Aranda Villar
 
-Select fecha_pedido from pedidos where fecha_pedido = '2023-01-01';
+Select min(fecha_pedido) as pedido_antiguo from pedidos;
 
 -- 9 Mostrar cuantos fabricantes tiene cada pais Diego Aranda Villar.
 
-Select Pais from fabricantes;
+Select Pais,count(*) from fabricantes group by pais;
 		
-                    
-
 -- 10 Mostrar prductos que tengan un precio entre 200 y 800 . Diego Aranda Villar 
 
-Select precio from productos where precio > 200 and precio < 800;
+Select precio from productos where precio >= 200 and precio <= 800;
 
 -- 11 producto mas caro. Diego Aranda Villar
 
 Select * from productos where precio > 1000;
+select * from productos order by precio desc limit 1; 
+
+-- 12 
+
+select *, round(precio) as Precio_Redondeado from productos; 
+
+-- 13 
+
+select id_fsb, sum(existencias) from productos group by id_fab; 
 
 -- 16 Cuantos pedidos hay por metodo de pago
 
