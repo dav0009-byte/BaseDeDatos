@@ -33,11 +33,22 @@ select * from jugador where fecha_alta = (select max(fecha_alta) from jugador);
 
 -- 7. Datos de los equipos que tienen más de tres jugadores registrados.
 
-select * from equipos where equipos = ( select * from equipos e join    );
+select * from equipo e join jugador j on (e.id_equipo=j.equipo);
 
 -- 8. Mostrar el nombre del jugador, el nombre del equipo al que pertenece y su posición.
 
+select j.nombre, e.nombre, posicion from jugador j join equipo e on ( e.id_equipo = j.equipo ); 
+
 -- 9. Mostrar el nombre de cada equipo y el nombre de su capitán o capitanes.
 
+
+
 -- 10. Datos de los equipos y el número de partidos que han jugado como locales.
+
+
+
+-- 11. Datos de los jugadores cuyos equipos hayan jugado al menos tres partidos como visitantes 
+
+select * from jugador j where equipo in 
+(select visitante from partido group by visitante having count(*) >=3);
 
